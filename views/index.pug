@@ -9,13 +9,25 @@ block eod
     +loadModule('pages/index.js')
 
 block content
-  main
-    div Write your content here
-    form(method="POST" action="/product")
-      div
-        span ProxyCrawl Token
-        input(name="token")
-      div
-        span ProxyCrawl url (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
-        input(name="url")
-      input(type="submit")
+  section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
+    main.uk-container
+      div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
+        div.uk-flex.uk-flex-column.uk-flex-middle
+          strong ProxyCrawl App
+          p.uk-text-light Fetch the products through our web app 
+        div.uk-flex.uk-flex-column.uk-flex-middle
+        form.uk-form-stacked(method="POST" action="/product")
+          .uk-margin
+            label.uk-form-label(for='form-stacked-text') Token
+            .uk-form-controls
+              input#form-stacked-text.uk-input(name="token" placeholder="ProxyCrawl Token")
+            .uk-margin
+              label.uk-form-label(for='form-stacked-text') 
+                | URL 
+                span.uk-text-muted.uk-text-small (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
+              .uk-form-controls
+                input#form-stacked-text.uk-input(name="url" placeholder="ProxyCrawl URL")
+            .uk-margin
+              label.uk-form-label(for='form-stacked-text')  
+              .uk-form-controls
+          input.uk-button.uk-button-default(type="submit" value="fetch")

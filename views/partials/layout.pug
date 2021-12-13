@@ -7,11 +7,25 @@ html(lang="en")
     meta(http-equiv="x-ua-compatible" content="ie=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title= title
+    <!-- UIkit CSS -->
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css")
     link(rel="stylesheet" charset="utf-8" media="screen" type="text/css" href=assetURL("css/styles.css"))
+
+    <!-- UIkit JS -->
+    script(src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js")
+
 
   body(class=pageID)
     block header
+      nav.uk-navbar-container.uk-navbar-transparent(style='background: rgb(37, 46, 57)' uk-navbar='')
+        .uk-navbar-left
+          a.uk-navbar-toggle(uk-navbar-toggle-icon='' href='#')
+        .uk-navbar-center
+          a.uk-navbar-item.uk-logo(href='/') 
+            img(style='height: 4.2rem' src="https://proxycrawl.com/assets/images/logo-header.png")
     block content
+    
     block footer
 
     script(src=assetURL("js/main-bundle.js") async)
