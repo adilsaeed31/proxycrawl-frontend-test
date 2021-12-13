@@ -11,14 +11,70 @@ block eod
 block content
   section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
     main.uk-container
+      ul.uk-breadcrumb
+        li
+          a(href='/') Home
+        each breadcrumb in product.breadCrumbs  
+          li
+            a(href=breadcrumb.link)= breadcrumb.name
       div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
         div.uk-flex.uk-flex-column.uk-flex-middle
           if error
             p Ups there is an error, try again
             p= error
           else
-            ul
-              li Check console output to see all available properties.
-              li= product.name
-              li= product.price
-              li= product.description
+            div.uk-margin-bottom(uk-grid='')
+              .uk-width-auto
+                img(src=product.mainImage)
+              .uk-width-expand.uk-flex.uk-flex-column
+                b= product.name
+                b.uk-margin-top= product.price || 'Currently unavailable'
+                a(href=product.byLineInfo.link)= product.brand
+                b= product.customerReview
+                p= product.description
+                span.uk-text-bold Seller 
+                  | 
+                  a.uk-text-light.uk-margin-small-left(href=product.soldBy.link) #{product.soldBy.name}
+                span.uk-text-bold Prime
+                  | 
+                  span.uk-text-light.uk-margin-small-left #{product.isPrime ? 'Yes' : 'No'}
+                span.uk-text-bold Stock
+                  | 
+                  span.uk-text-light.uk-margin-small-left #{product.inStock ? 'Yes' : 'No'}
+              .uk-flex.uk-flex-center
+                each image in product.images
+                  div
+                    img(data-src=image width='' height='' alt='' uk-img='')
+
+              article.uk-article
+                h1.uk-article-title
+                  a.uk-link-reset Features
+                each feature in product.features
+                  ul
+                    li= feature
+
+          .uk-flex.uk-margin-bottom(uk-grid='')
+            each productInfo in product.productInformation 
+              .uk-width-1-2.uk-margin-small.uk-flex-middle
+                span= productInfo.name
+              .uk-width-1-2.uk-margin-small.uk-flex-middle
+                span= productInfo.value
+          
+          h3.uk-margin-top Customer Reviews
+          .uk-flex(uk-grid='')
+            each review in product.reviews
+              .uk-width-1-2
+                .uk-card.uk-card-body(style='background:#0003')
+                  .uk-flex.uk-flex-column
+                    .uk-flex.uk-flex-between.uk-flex-middle
+                      h3.uk-card-title.uk-margin-small-bottom= review.reviewerName
+                        | 
+                        if review.reviewVerifiedPurchase 
+                          span.uk-text-success(uk-icon="icon: check")
+                        else   
+                          span.uk-text-muted(uk-icon="icon: close")
+                      span.uk-margin-small-bottom= review.reviewRating
+                    span.uk-margin-small-bottom= review.reviewDate
+                    span.uk-margin-small-bottom= review.reviewTitle
+                    span.uk-margin-small-bottom= review.reviewText
+                    span= review.reviewVotes
