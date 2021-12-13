@@ -24,9 +24,9 @@ block content
             p= error
           else
             div.uk-margin-bottom(uk-grid='')
-              .uk-width-auto
+              .uk-width-auto(uk-scrollspy="cls: uk-animation-slide-left-small; repeat: true")
                 img(src=product.mainImage)
-              .uk-width-expand.uk-flex.uk-flex-column
+              .uk-width-expand.uk-flex.uk-flex-column(uk-scrollspy="cls: uk-animation-slide-right-small; repeat: true")
                 b= product.name
                 b.uk-margin-top= product.price || 'Currently unavailable'
                 a(href=product.byLineInfo.link)= product.brand
@@ -41,19 +41,19 @@ block content
                 span.uk-text-bold Stock
                   | 
                   span.uk-text-light.uk-margin-small-left #{product.inStock ? 'Yes' : 'No'}
-              .uk-flex.uk-flex-center
+              .uk-flex.uk-flex-center(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 200")
                 each image in product.images
                   div
                     img(data-src=image width='' height='' alt='' uk-img='')
 
-              article.uk-article
+              article.uk-article(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true")
                 h1.uk-article-title
                   a.uk-link-reset Features
                 each feature in product.features
                   ul
                     li= feature
 
-          .uk-flex.uk-margin-bottom(uk-grid='')
+          .uk-flex.uk-margin-bottom(uk-grid='')(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
             each productInfo in product.productInformation 
               .uk-width-1-2.uk-margin-small.uk-flex-middle
                 span= productInfo.name
@@ -63,7 +63,7 @@ block content
           h3.uk-margin-top Customer Reviews
           .uk-flex(uk-grid='')
             each review in product.reviews
-              .uk-width-1-2
+              .uk-width-1-2(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
                 .uk-card.uk-card-body(style='background:#0003')
                   .uk-flex.uk-flex-column
                     .uk-flex.uk-flex-between.uk-flex-middle

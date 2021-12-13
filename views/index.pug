@@ -10,13 +10,13 @@ block eod
 
 block content
   section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
-    main.uk-container
+    main.uk-container(uk-scrollspy="cls: uk-animation-scale-up; repeat: true")
       div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
-        div.uk-flex.uk-flex-column.uk-flex-middle
+        div.uk-flex.uk-flex-column.uk-flex-middle.uk-width-1-2
           strong ProxyCrawl App
           p.uk-text-light Fetch the products through our web app with Form Post or Ajax
         div.uk-flex(uk-grid='')
-          .uk-width-1-2 
+          .uk-width-1-2
             div.uk-flex.uk-flex-column.uk-flex-middle
             form.uk-form-stacked(method="POST" action="/product")
               .uk-margin
@@ -33,7 +33,7 @@ block content
                   label.uk-form-label(for='form-stacked-text')  
                   .uk-form-controls
               input.uk-button.uk-button-default(type="submit")
-          .uk-width-1-2 
+          .uk-width-1-2.uk-width-1-2
             div.uk-flex.uk-flex-column.uk-flex-middle
             form#ajax.uk-form-stacked(method="POST" action="/product")
               .uk-margin
