@@ -1,5 +1,4 @@
 /node_modules
-/public/assets
 /log
 .eslintrc.js
 .checksums
