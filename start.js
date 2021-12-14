@@ -29,7 +29,7 @@ app
 
 http
   .createServer(app.callback())
-  .listen(process.env.PORT || 80, 'localhost', () =>
+  .listen(process.env.PORT || 3000, 'localhost', () =>
     console.log('Listening on http://localhost:80')
   );
 
