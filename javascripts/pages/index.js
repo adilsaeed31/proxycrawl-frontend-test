@@ -14,7 +14,7 @@ $(document).ready(() => {
       url: document.querySelector('#url').value,
     };
 
-    fetch('http://localhost:3000/product', {
+    fetch('https://proxycrawl-frontend-test.herokuapp.com/product', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
