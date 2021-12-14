@@ -29,8 +29,8 @@ app
 
 http
   .createServer(app.callback())
-  .listen(process.env.PORT || 3000, 'localhost', () =>
-    console.log('Listening on http://localhost:80')
+  .listen(process.env.PORT || 3000, () =>
+    console.log('Listening on http://localhost:3000')
   );
 
 // Require all routes
