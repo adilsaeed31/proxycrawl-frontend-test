@@ -9,72 +9,72 @@ block eod
     +loadModule('pages/product.js')
 
 block content
-  section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
-    main.uk-container
-      ul.uk-breadcrumb
+  section.pc-section.pc-light.pc-background-secondary.pc-padding(pc-height-viewport="offset-top: true")
+    main.pc-container
+      ul.pc-breadcrumb
         li
           a(href='/') Home
         each breadcrumb in product.breadCrumbs  
           li
             a(href=breadcrumb.link)= breadcrumb.name
-      div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
-        div.uk-flex.uk-flex-column.uk-flex-middle
+      div.pc-flex.pc-flex-column.pc-flex-middle.pc-flex-center
+        div.pc-flex.pc-flex-column.pc-flex-middle
           if error
             p Ups there is an error, try again
             p= error
           else
-            div.uk-margin-bottom(uk-grid='')
-              .uk-width-auto(uk-scrollspy="cls: uk-animation-slide-left-small; repeat: true")
+            div.pc-margin-bottom(pc-grid='')
+              .pc-width-auto(pc-scrollspy="cls: pc-animation-slide-left-small; repeat: true")
                 img(src=product.mainImage)
-              .uk-width-expand.uk-flex.uk-flex-column(uk-scrollspy="cls: uk-animation-slide-right-small; repeat: true")
+              .pc-width-expand.pc-flex.pc-flex-column(pc-scrollspy="cls: pc-animation-slide-right-small; repeat: true")
                 b= product.name
-                b.uk-margin-top= product.price || 'Currently unavailable'
+                b.pc-margin-top= product.price || 'Currently unavailable'
                 a(href=product.byLineInfo.link)= product.brand
                 b= product.customerReview
                 p= product.description
-                span.uk-text-bold Seller 
+                span.pc-text-bold Seller 
                   | 
-                  a.uk-text-light.uk-margin-small-left(href=product.soldBy.link) #{product.soldBy.name}
-                span.uk-text-bold Prime
+                  a.pc-text-light.pc-margin-small-left(href=product.soldBy.link) #{product.soldBy.name}
+                span.pc-text-bold Prime
                   | 
-                  span.uk-text-light.uk-margin-small-left #{product.isPrime ? 'Yes' : 'No'}
-                span.uk-text-bold Stock
+                  span.pc-text-light.pc-margin-small-left #{product.isPrime ? 'Yes' : 'No'}
+                span.pc-text-bold Stock
                   | 
-                  span.uk-text-light.uk-margin-small-left #{product.inStock ? 'Yes' : 'No'}
-              .uk-flex.uk-flex-center(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 200")
+                  span.pc-text-light.pc-margin-small-left #{product.inStock ? 'Yes' : 'No'}
+              .pc-flex.pc-flex-center(pc-scrollspy="cls: pc-animation-slide-bottom-small; repeat: true; delay: 200")
                 each image in product.images
                   div
-                    img(data-src=image width='' height='' alt='' uk-img='')
+                    img(data-src=image width='' height='' alt='' pc-img='')
 
-              article.uk-article(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true")
-                h1.uk-article-title
-                  a.uk-link-reset Features
+              article.pc-article(pc-scrollspy="cls: pc-animation-slide-bottom-small; repeat: true")
+                h1.pc-article-title
+                  a.pc-link-reset Features
                 each feature in product.features
                   ul
                     li= feature
 
-          .uk-flex.uk-margin-bottom(uk-grid='')(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
+          .pc-flex.pc-margin-bottom(pc-grid='')(pc-scrollspy="cls: pc-animation-slide-bottom-small; repeat: true; delay: 100")
             each productInfo in product.productInformation 
-              .uk-width-1-2.uk-margin-small.uk-flex-middle
+              .pc-width-1-2.pc-margin-small.pc-flex-middle
                 span= productInfo.name
-              .uk-width-1-2.uk-margin-small.uk-flex-middle
+              .pc-width-1-2.pc-margin-small.pc-flex-middle
                 span= productInfo.value
           
-          h3.uk-margin-top Customer Reviews
-          .uk-flex(uk-grid='')
+          h3.pc-margin-top Customer Reviews
+          .pc-flex(pc-grid='')
             each review in product.reviews
-              .uk-width-1-2(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
-                .uk-card.uk-card-body(style='background:#0003')
-                  .uk-flex.uk-flex-column
-                    .uk-flex.uk-flex-between.uk-flex-middle
-                      h3.uk-card-title.uk-margin-small-bottom= review.reviewerName
+              .pc-width-1-2(pc-scrollspy="cls: pc-animation-slide-bottom-small; repeat: true; delay: 100")
+                .pc-card.pc-card-body(style='background:#0003')
+                  .pc-flex.pc-flex-column
+                    .pc-flex.pc-flex-between.pc-flex-middle
+                      h3.pc-card-title.pc-margin-small-bottom= review.reviewerName
                         | 
                         if review.reviewVerifiedPurchase 
-                          span.uk-text-success(uk-icon="icon: check")
+                          span.pc-text-success(pc-icon="icon: check")
                         else   
-                          span.uk-text-muted(uk-icon="icon: close")
-                      span.uk-margin-small-bottom= review.reviewRating
-                    span.uk-margin-small-bottom= review.reviewDate
-                    span.uk-margin-small-bottom= review.reviewTitle
-                    span.uk-margin-small-bottom= review.reviewText
+                          span.pc-text-muted(pc-icon="icon: close")
+                      span.pc-margin-small-bottom= review.reviewRating
+                    span.pc-margin-small-bottom= review.reviewDate
+                    span.pc-margin-small-bottom= review.reviewTitle
+                    span.pc-margin-small-bottom= review.reviewText
                     span= review.reviewVotes

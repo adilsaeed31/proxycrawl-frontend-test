@@ -1,0 +1,27 @@
+.pc-margin-vertical {
+  @include margin-vertical();
+}
+
+.pc-padding-horizontal {
+  @include padding-horizontal();
+}
+
+.pc-margin-left {
+  @include margin-left(10px);
+}
+
+.pc-text-muted {
+  color: $text-muted-color;
+}
+
+.pc-text-small {
+  font-size: 10px;
+}
+
+.pc-flex-row {
+  flex-direction: row !important;
+}
+
+.pc-flex-center {
+  align-items: center;
+}

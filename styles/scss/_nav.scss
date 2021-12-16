@@ -1,0 +1,39 @@
+.pc-navbar {
+  display: flex;
+  position: relative;
+
+  align-items: center;
+
+  .pc-navbar-left {
+    .pc-navbar-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 0.25em;
+      box-sizing: border-box;
+      min-height: 80px;
+      padding: 0 15px;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+  }
+
+  .pc-navbar-center {
+    display: flex;
+    align-items: center;
+
+    &:not(:only-child) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: max-content;
+      box-sizing: border-box;
+      z-index: 990;
+    }
+
+    .pc-navbar-item {
+      padding: 0 15px;
+    }
+  }
+}

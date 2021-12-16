@@ -1,0 +1,3 @@
+@function weight($value) {
+  @return map-get($font-weight, $value);
+}
