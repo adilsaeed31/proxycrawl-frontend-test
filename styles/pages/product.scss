@@ -1,3 +1,102 @@
-.product {
-  // Styles for product page
+.pc-product-error {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.pc-product-top {
+  display: flex;
+
+  .pc-product-info {
+    display: flex;
+    flex-direction: column;
+
+    @include margin-left(20px);
+  }
+}
+
+.pc-product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include margin-vertical();
+
+  > img {
+    display: inline-block;
+    flex: 1;
+
+    width: calc(100% * (1 / 5));
+    height: 100%;
+  }
+}
+
+.pc-features {
+  @include margin-top(40px);
+  @include margin-bottom(40px);
+
+  ul {
+    list-style-position: inside;
+  }
+}
+
+.pc-product-info {
+  .pc-product-info-bar {
+    display: flex;
+    align-items: center;
+
+    @include padding(10px);
+
+    border: 1px solid $text-secondary-color;
+
+    > span {
+      &:first-child {
+        flex: 1;
+      }
+      &:last-child {
+        flex: 2;
+      }
+    }
+  }
+}
+
+.pc-product-reviews {
+  @include margin-top(40px);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  .pc-reviews {
+    display: flex;
+    flex-wrap: wrap;
+
+    .pc-review-cards {
+      display: flex;
+      width: calc(100% * (1 / 2));
+
+      .pc-review-card-body {
+        display: flex;
+        flex-direction: column;
+
+        background: $product-card-review-bg;
+
+        @include margin-right(10px);
+        @include margin-bottom(20px);
+        @include padding(20px);
+
+        &:nth-child(2) {
+          @include margin-right(0px);
+        }
+
+        .pc-card-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
 }

@@ -11,8 +11,24 @@
   margin: 20px 0px;
 }
 
+@mixin margin-horizontal() {
+  margin: 0px 20px;
+}
+
+@mixin margin($value) {
+  margin: $value;
+}
+
 @mixin padding-horizontal() {
   padding: 0px 10px;
+}
+
+@mixin padding-vertical() {
+  padding: 20px 0px;
+}
+
+@mixin padding($value) {
+  padding: $value;
 }
 
 @mixin pc-button() {
@@ -48,4 +64,12 @@
 
 @mixin margin-left($value) {
   margin-left: $value;
+}
+
+@mixin margin-right($value) {
+  margin-right: $value;
+}
+
+@mixin margin-top($value) {
+  margin-top: $value;
 }

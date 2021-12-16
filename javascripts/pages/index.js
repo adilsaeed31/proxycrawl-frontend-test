@@ -1,20 +1,17 @@
-// Example...
 // Avoid using jquery if possible.
-$(document).ready(() => {
-  console.log('Index page');
-
+;(function () {
   document.getElementById('ajax').addEventListener('submit', function (event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    document.querySelector('#ajaxSubmitBtn').disabled = true;
-    document.querySelector('#spinner').style.display = 'inline-block';
+    document.querySelector('#ajaxSubmitBtn').disabled = true
+    document.querySelector('#spinner').style.display = 'inline-block'
 
     const data = {
       token: document.querySelector('#token').value,
       url: document.querySelector('#url').value,
-    };
+    }
 
-    fetch('http://localhost:3000/product', {
+    fetch('/product', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,10 +20,10 @@ $(document).ready(() => {
     })
       .then((response) => response.text())
       .then((data) => {
-        document.querySelector('.index').innerHTML = data;
+        document.querySelector('.index').innerHTML = data
       })
       .catch((error) => {
-        console.error('Error:', error);
-      });
-  });
-});
+        console.error('Error:', error)
+      })
+  })
+})()

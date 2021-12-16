@@ -16,14 +16,23 @@
 */
 
 body {
-  line-height: 1;
-  font-size: 14px;
+  line-height: 1.5;
+  font-size: 16px;
 
   background-color: $primary-color;
   color: $text-color;
 
   font-family: $font-family;
   font-weight: weight(regular);
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .pc-header {
@@ -36,4 +45,31 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.pc-breadcrumb {
+  @include margin-vertical();
+
+  display: flex;
+
+  list-style: none;
+
+  li {
+    a {
+      color: $text-secondary-color;
+      text-decoration: none;
+    }
+
+    &:not(:last-child):after {
+      content: '/';
+      color: $text-secondary-color;
+      @include margin-horizontal();
+    }
+
+    &:last-child {
+      a {
+        color: $text-color;
+      }
+    }
+  }
 }
