@@ -1,2 +1,75 @@
-@import "pages/index.scss";
-@import "pages/product.scss";
+@import 'scss/reset';
+
+@import 'scss/variables';
+@import 'scss/mixins';
+@import 'scss/functions';
+@import 'scss/helpers';
+
+@import 'scss/nav';
+
+// Pages SCSS
+@import 'pages/index';
+@import 'pages/product';
+
+/*
+  PC: stands for ProxyCrawl
+*/
+
+body {
+  line-height: 1.5;
+  font-size: 16px;
+
+  background-color: $primary-color;
+  color: $text-color;
+
+  font-family: $font-family;
+  font-weight: weight(regular);
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.pc-header {
+  background-color: $secondary-color;
+}
+
+.pc-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.pc-breadcrumb {
+  @include margin-vertical();
+
+  display: flex;
+
+  list-style: none;
+
+  li {
+    a {
+      color: $text-secondary-color;
+      text-decoration: none;
+    }
+
+    &:not(:last-child):after {
+      content: '/';
+      color: $text-secondary-color;
+      @include margin-horizontal();
+    }
+
+    &:last-child {
+      a {
+        color: $text-color;
+      }
+    }
+  }
+}
