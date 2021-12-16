@@ -1,0 +1,43 @@
+.pc-form-stacked {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-form-heading {
+  font-weight: weight(medium);
+
+  @include margin-bottom(20px);
+}
+
+.pc-form-controls {
+  margin: 10px 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-form-label {
+  @include margin-bottom(10px);
+
+  font-weight: weight(regular);
+
+  span {
+    @include text-light();
+
+    margin-left: 20px;
+
+    font-weight: weight(medium);
+    font-size: 10px;
+  }
+}
+
+.pc-input {
+  @include padding-horizontal();
+
+  height: 40px;
+}
+
+.pc-button {
+  @include pc-button();
+}

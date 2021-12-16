@@ -1,0 +1,65 @@
+.pc-margin-vertical {
+  @include margin-vertical();
+}
+
+.pc-padding-vertical {
+  @include padding-vertical();
+}
+
+.pc-padding-horizontal {
+  @include padding-horizontal();
+}
+
+.pc-margin-left {
+  @include margin-left(10px);
+}
+
+.pc-margin-top {
+  @include margin-top(10px);
+}
+
+.pc-text-muted {
+  color: $text-muted-color;
+}
+
+.pc-text-secondary {
+  color: $text-secondary-color;
+}
+
+.pc-text-small {
+  font-size: 10px;
+  font-weight: weight(thin);
+}
+
+.pc-flex-row {
+  flex-direction: row !important;
+}
+
+.pc-flex-center {
+  align-items: center;
+}
+
+.pc-text-bold {
+  font-weight: weight(bold);
+}
+
+.pc-text-light {
+  font-weight: weight(regular);
+}
+
+.pc-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.pc-text-success {
+  color: $text-success-color;
+}
+
+.pc-text-danger {
+  color: $text-danger-color;
+}
+
+.pc-margin-small-bottom {
+  @include margin-bottom(10px);
+}

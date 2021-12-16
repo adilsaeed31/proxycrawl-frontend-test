@@ -9,72 +9,74 @@ block eod
     +loadModule('pages/product.js')
 
 block content
-  section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
-    main.uk-container
-      ul.uk-breadcrumb
-        li
-          a(href='/') Home
-        each breadcrumb in product.breadCrumbs  
+  section.pc-section
+    main.pc-container        
+      if error
+        div.pc-product-error
+          p.pc-margin-vertical Oops there is an error, try again
+          p= error
+      else
+        ul.pc-breadcrumb.pc-margin-horizontal.pc-margin-vertical
           li
-            a(href=breadcrumb.link)= breadcrumb.name
-      div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
-        div.uk-flex.uk-flex-column.uk-flex-middle
-          if error
-            p Ups there is an error, try again
-            p= error
-          else
-            div.uk-margin-bottom(uk-grid='')
-              .uk-width-auto(uk-scrollspy="cls: uk-animation-slide-left-small; repeat: true")
-                img(src=product.mainImage)
-              .uk-width-expand.uk-flex.uk-flex-column(uk-scrollspy="cls: uk-animation-slide-right-small; repeat: true")
-                b= product.name
-                b.uk-margin-top= product.price || 'Currently unavailable'
-                a(href=product.byLineInfo.link)= product.brand
-                b= product.customerReview
-                p= product.description
-                span.uk-text-bold Seller 
-                  | 
-                  a.uk-text-light.uk-margin-small-left(href=product.soldBy.link) #{product.soldBy.name}
-                span.uk-text-bold Prime
-                  | 
-                  span.uk-text-light.uk-margin-small-left #{product.isPrime ? 'Yes' : 'No'}
-                span.uk-text-bold Stock
-                  | 
-                  span.uk-text-light.uk-margin-small-left #{product.inStock ? 'Yes' : 'No'}
-              .uk-flex.uk-flex-center(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 200")
-                each image in product.images
-                  div
-                    img(data-src=image width='' height='' alt='' uk-img='')
+            a(href='/') Home
+          each breadcrumb in product.breadCrumbs  
+            li
+              a(href=breadcrumb.link)= breadcrumb.name
+        div.pc-product
+          .pc-product-top
+            .pc-product-image
+              img(src=product.mainImage)
+            .pc-product-info
+              h3.pc-text-secondary= product.name
+              b.pc-margin-top= product.price || 'Currently unavailable'
+              a(href=product.byLineInfo.link)= product.brand
+              b.pc-text-bold= product.customerReview
+              p.pc-margin-vertical.pc-text-secondary= product.description
+              span.pc-margin-top.pc-text-bold Seller 
+                | 
+                a.pc-text-light.pc-margin-small-left(href=product.soldBy.link) #{product.soldBy.name}
+              span.pc-text-bold Prime
+                | 
+                span.pc-text-light.pc-margin-small-left #{product.isPrime ? 'Yes' : 'No'}
+              span.pc-text-bold Stock
+                | 
+                span.pc-text-light.pc-margin-small-left #{product.inStock ? 'Yes' : 'No'}
+      
+          .pc-product-gallery
+            each image in product.images
+              img.pc-image(src=image)
 
-              article.uk-article(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true")
-                h1.uk-article-title
-                  a.uk-link-reset Features
-                each feature in product.features
-                  ul
-                    li= feature
+          .pc-features
+            h1.pc-feature-title Features
+            ul
+              each feature in product.features
+                li.pc-margin-vertical= feature
 
-          .uk-flex.uk-margin-bottom(uk-grid='')(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
+          .pc-product-info
             each productInfo in product.productInformation 
-              .uk-width-1-2.uk-margin-small.uk-flex-middle
+              .pc-product-info-bar
                 span= productInfo.name
-              .uk-width-1-2.uk-margin-small.uk-flex-middle
                 span= productInfo.value
           
-          h3.uk-margin-top Customer Reviews
-          .uk-flex(uk-grid='')
-            each review in product.reviews
-              .uk-width-1-2(uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true; delay: 100")
-                .uk-card.uk-card-body(style='background:#0003')
-                  .uk-flex.uk-flex-column
-                    .uk-flex.uk-flex-between.uk-flex-middle
-                      h3.uk-card-title.uk-margin-small-bottom= review.reviewerName
+          .pc-product-reviews.pc-margin-vertical
+            .pc-review-title
+              h3.pc-margin-vertical Customer Reviews
+            .pc-reviews
+              each review in product.reviews
+                .pc-review-cards
+                  .pc-review-card-body
+                    .pc-card-header
+                      h3= review.reviewerName
                         | 
                         if review.reviewVerifiedPurchase 
-                          span.uk-text-success(uk-icon="icon: check")
+                          span.pc-text-small.pc-text-success Verified
                         else   
-                          span.uk-text-muted(uk-icon="icon: close")
-                      span.uk-margin-small-bottom= review.reviewRating
-                    span.uk-margin-small-bottom= review.reviewDate
-                    span.uk-margin-small-bottom= review.reviewTitle
-                    span.uk-margin-small-bottom= review.reviewText
+                          span.pc-text-small.pc-text-muted UnVerified
+                      span.pc-margin-small-bottom= review.reviewRating
+                    span.pc-margin-small-bottom= review.reviewDate
+                    span.pc-margin-small-bottom= review.reviewTitle
+                    span.pc-margin-small-bottom #{review.reviewText.substring(0,500)} 
+                      |
+                      br
+                      a(href="#") Read More ...
                     span= review.reviewVotes

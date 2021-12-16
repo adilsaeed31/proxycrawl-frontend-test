@@ -9,46 +9,42 @@ block eod
     +loadModule('pages/index.js')
 
 block content
-  section.uk-section.uk-light.uk-background-secondary.uk-padding(uk-height-viewport="offset-top: true")
-    main.uk-container(uk-scrollspy="cls: uk-animation-scale-up; repeat: true")
-      div.uk-flex.uk-flex-column.uk-flex-middle.uk-flex-center
-        div.uk-flex.uk-flex-column.uk-flex-middle.uk-width-1-2
-          strong ProxyCrawl App
-          p.uk-text-light Fetch the products through our web app with Form Post or Ajax
-        div.uk-flex(uk-grid='')
-          .uk-width-1-2
-            div.uk-flex.uk-flex-column.uk-flex-middle
-            form.uk-form-stacked(method="POST" action="/product")
-              .uk-margin
-                label.uk-form-label(for='form-stacked-text') Server Token
-                .uk-form-controls
-                  input#form-stacked-text.uk-input(name="token" value="mjXqp8QCJfGZ3SfOHpqI1g" placeholder="ProxyCrawl Token")
-                .uk-margin
-                  label.uk-form-label(for='form-stacked-text') 
-                    | URL 
-                    span.uk-text-muted.uk-text-small (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
-                  .uk-form-controls
-                    input#form-stacked-text.uk-input(name="url" value="https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2" placeholder="ProxyCrawl URL")
-                .uk-margin
-                  label.uk-form-label(for='form-stacked-text')  
-                  .uk-form-controls
-              input.uk-button.uk-button-default(type="submit")
-          .uk-width-1-2.uk-width-1-2
-            div.uk-flex.uk-flex-column.uk-flex-middle
-            form#ajax.uk-form-stacked(method="POST" action="/product")
-              .uk-margin
-                label.uk-form-label(for='form-stacked-text') Client Token
-                .uk-form-controls
-                  input#token.uk-input(name="token" value="TKzTGU4ukUMNYQt01VDy5w" placeholder="ProxyCrawl Token")
-                .uk-margin
-                  label.uk-form-label(for='token') 
-                    | URL 
-                    span.uk-text-muted.uk-text-small (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
-                  .uk-form-controls
-                    input#url.uk-input(name="url" value="https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2" placeholder="ProxyCrawl URL")
-                .uk-margin
-                  label.uk-form-label(for='url')  
-                  .uk-form-controls
-              input#ajaxSubmitBtn.uk-button.uk-button-default(type="submit" value="Fetch")
-              | 
-              div#spinner(uk-spinner='' style='display:none;')
+  section.pc-section
+    main.pc-container
+      div.pc-forms
+        div.pc-top
+          h2.pc-heading ProxyCrawl App
+          p.pc-margin-vertical.pc-text-light Fetch the products through our web app with Form Post or Ajax
+        div.pc-middle
+          .pc-one
+            form.pc-form-stacked(method="POST" action="/product")
+              h3.pc-form-heading(for='form-stacked-text') Server Form
+              .pc-form-controls
+                label.pc-form-label(for='form-stacked-text') 
+                  | Token 
+                  span.pc-text-muted.pc-text-small (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
+                input#form-stacked-text.pc-input(name="token" value="mjXqp8QCJfGZ3SfOHpqI1g" placeholder="ProxyCrawl Token" required="true" validate="true")
+              .pc-form-controls
+                label.pc-form-label(for='form-stacked-text') Url
+                input#form-stacked-text.pc-input(name="url" value="https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2" placeholder="ProxyCrawl URL" required="true" validate="true")
+              .pc-form-controls
+                input.pc-button.pc-button-default(type="submit")
+          .pc-two
+            form#ajax.pc-form-stacked(method="POST" action="/product")
+              h3.pc-form-heading(for='form-stacked-text') Client Form
+              .pc-form-controls
+                label.pc-form-label(for='token') 
+                  | Token 
+                  span.pc-text-muted.pc-text-small (Example url: https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2 )
+                input#token.pc-input(name="token" value="TKzTGU4ukUMNYQt01VDy5w" placeholder="ProxyCrawl Token" required="true" validate="true")
+              .pc-form-controls
+                label.pc-form-label(for='url') Url
+                input#url.pc-input(name="url" value="https://www.amazon.com/Philips-Norelco-AT830-46-Frustration/dp/B00JITDVD2" placeholder="ProxyCrawl URL" required="true" validate="true")
+              .pc-form-controls.pc-flex-row.pc-flex-center
+                input#ajaxSubmitBtn.pc-button.pc-button-default(type="submit" value="Fetch")
+                | 
+                #spinner.pc-margin-left
+                  span.spinner-inner-1
+                  span.spinner-inner-2
+                  span.spinner-inner-3
+
