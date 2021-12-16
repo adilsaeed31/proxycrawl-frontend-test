@@ -13,11 +13,13 @@ const app = new Koa();
 
 app
   .use(bodyParser())
-  .use(enforceWWW({
-    www: false,
-    useHTTPS: true,
-    trustHostHeader: true
-  }))
+  .use(
+    enforceWWW({
+      www: false,
+      useHTTPS: true,
+      trustHostHeader: true,
+    })
+  )
   .use(cacheControl({ noCache: true }))
   .use(json())
   .use(conditionalGet())
@@ -25,7 +27,11 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-http.createServer(app.callback()).listen(3000, 'localhost', () => console.log('Listening on http://localhost:3000'));
+http
+  .createServer(app.callback())
+  .listen(process.env.PORT || 3000, () =>
+    console.log('Listening on http://localhost:3000')
+  );
 
 // Require all routes
 rootRequire('routes/static.js');
